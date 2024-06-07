@@ -32,7 +32,7 @@ public class LogicEvaluatorTest {
 
     @Test
     public void testLouEstBeauOuLouEstGenereuxDoncLouEstPauvre() {
-        Assertion assertion = new Assertion("Lou est beau ou Lou est généreux", "Lou est pauvre", "donc");
+        Assertion assertion = new Assertion("Lou est beau ou Lou est généreux", "Lou est pauvre", "complex");
         boolean result = logique.evaluateAssertion(assertion);
         assertEquals(false, result);
     }
