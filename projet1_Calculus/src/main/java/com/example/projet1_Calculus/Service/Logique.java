@@ -1,10 +1,9 @@
 package com.example.projet1_Calculus.Service;
 
 
+
 import com.example.projet1_Calculus.Model.Assertion;
 import org.springframework.stereotype.Service;
-
-
 
 @Service
 public class Logique {
@@ -15,14 +14,13 @@ public class Logique {
         String operator = assertion.getOperator();
 
         // Gérer les affirmations complexes
-        switch (operator) {
-            case "COMPLEX":
-                return evaluateComplex(statement1, statement2);
-            default:
-                boolean statement1Value = evaluateStatement(statement1);
-                boolean statement2Value = evaluateStatement(statement2);
-                return evaluateOperator(statement1Value, statement2Value, operator);
+        if ("complex".equalsIgnoreCase(operator)) {
+            return evaluateComplexAssertion(statement1, statement2);
         }
+
+        boolean statement1Value = evaluateStatement(statement1);
+        boolean statement2Value = evaluateStatement(statement2);
+        return evaluateOperator(statement1Value, statement2Value, operator);
     }
 
     private boolean evaluateStatement(String statement) {
@@ -39,7 +37,7 @@ public class Logique {
     }
 
     private boolean evaluateOperator(boolean statement1Value, boolean statement2Value, String operator) {
-        switch (operator) {
+        switch (operator.toLowerCase()) {
             case "et":
                 return statement1Value && statement2Value;
             case "ou":
@@ -51,7 +49,8 @@ public class Logique {
         }
     }
 
-    private boolean evaluateComplex(String part1, String part2) {
+    private boolean evaluateComplexAssertion(String part1, String part2) {
+        // Split the complex assertion into parts
         if ("Lou est beau ou Lou est généreux. Donc Lou est pauvre.".equals(part1) &&
                 "Lou est pauvre ou Lou est généreux.".equals(part2)) {
             boolean part1Result = evaluateOperator(true || false, false, "donc");

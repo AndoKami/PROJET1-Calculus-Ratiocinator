@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.*;
 public class LogiqueController {
 
     @Autowired
-    private Logique logicService;
+    private Logique logique;
 
     @PostMapping("/evaluate")
     public AssertionReponse evaluate(@RequestBody Assertion assertion) {
-        boolean result = logicService.evaluateAssertion(assertion);
+        boolean result = logique.evaluateAssertion(assertion);
         return new AssertionReponse(result);
     }
 }

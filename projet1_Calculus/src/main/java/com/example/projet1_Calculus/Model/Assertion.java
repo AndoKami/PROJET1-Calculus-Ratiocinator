@@ -5,6 +5,12 @@ public class Assertion {
     private String statement2;
     private String operator;
 
+    public Assertion(String statement1, String statement2, String operator) {
+        this.statement1 = statement1;
+        this.statement2 = statement2;
+        this.operator = operator;
+    }
+
     // Getters and Setters
     public String getStatement1() {
         return statement1;
