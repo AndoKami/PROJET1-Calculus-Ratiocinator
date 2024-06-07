@@ -8,8 +8,4 @@ public class AssertionReponse {
     public AssertionReponse(boolean result) {
         this.result = result;
     }
-
-    public boolean isResult() {
-        return result;
-    }
 }
