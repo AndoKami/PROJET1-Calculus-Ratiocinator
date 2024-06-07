@@ -11,7 +11,6 @@ public class Assertion {
         this.operator = operator;
     }
 
-    // Getters and Setters
     public String getStatement1() {
         return statement1;
     }

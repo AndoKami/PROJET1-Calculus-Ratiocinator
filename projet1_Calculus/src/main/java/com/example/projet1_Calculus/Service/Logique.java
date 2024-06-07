@@ -50,7 +50,7 @@ public class Logique {
     }
 
     private boolean evaluateComplexAssertion(String part1, String part2) {
-        // Split the complex assertion into parts
+
         if ("Lou est beau ou Lou est généreux. Donc Lou est pauvre.".equals(part1) &&
                 "Lou est pauvre ou Lou est généreux.".equals(part2)) {
             boolean part1Result = evaluateOperator(true || false, false, "donc");

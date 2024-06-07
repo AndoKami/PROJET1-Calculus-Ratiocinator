@@ -9,7 +9,6 @@ public class AssertionReponse {
         this.result = result;
     }
 
-    // Getter
     public boolean isResult() {
         return result;
     }
